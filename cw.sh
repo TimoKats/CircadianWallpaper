@@ -11,9 +11,10 @@
 # Note, set THEME correctly. Only tested on Debian/Gnome environment.
 
 readonly THEME=picture-uri-dark # set to picture-uri if you have a light theme!
-readonly HOUR=$(date +"%H")
 readonly EVENING=18
 readonly MORNING=6
+HOUR=$(date +"%H")
+HOUR=$((10#$HOUR)) # mornings can break due to leading zero
 
 if [[ HOUR -ge EVENING || HOUR -lt MORNING ]]; then
   selector="tail"
